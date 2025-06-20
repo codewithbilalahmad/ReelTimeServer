@@ -8,6 +8,8 @@ import com.muhammad.reeltimeserver.security.hash.service.HashingService
 import com.muhammad.reeltimeserver.security.jwt.model.TokenConfig
 import com.muhammad.reeltimeserver.security.jwt.service.TokenService
 import io.ktor.server.application.Application
+import io.ktor.server.response.respondText
+import io.ktor.server.routing.get
 import io.ktor.server.routing.routing
 
 fun Application.configureRouting(
@@ -18,6 +20,9 @@ fun Application.configureRouting(
     tokenConfig: TokenConfig,
 ) {
     routing {
+        get("/"){
+            call.respondText("Welcome To Muhammad ReelTime Server😎😎😎")
+        }
         authRouting(
             hashingService = hashingService,
             userDataSource = userDataSource,
