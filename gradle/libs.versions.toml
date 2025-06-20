@@ -1,0 +1,39 @@
+[versions]
+kotlin-version = "2.1.10"
+ktor-version = "3.2.0"
+ktor-content-version = "3.0.0"
+logback-version = "1.4.14"
+mongodb-version = "4.11.0"
+commons-codec-version = "1.15"
+serialization = "2.1.21"
+
+[libraries]
+# Ktor Core
+ktor-server-core = { module = "io.ktor:ktor-server-core-jvm", version.ref = "ktor-version" }
+ktor-server-auth = { module = "io.ktor:ktor-server-auth-jvm", version.ref = "ktor-version" }
+ktor-server-auth-jwt = { module = "io.ktor:ktor-server-auth-jwt-jvm", version.ref = "ktor-version" }
+ktor-server-netty = { module = "io.ktor:ktor-server-netty", version.ref = "ktor-version" }
+ktor-server-test = { module = "io.ktor:ktor-server-tests-jvm", version.ref = "kotlin-version" }
+
+# Ktor Serialization & Logging (not matching ktor-version)
+ktor-server-content-negotiation = { module = "io.ktor:ktor-server-content-negotiation-jvm", version.ref = "ktor-content-version" }
+ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json-jvm", version.ref = "ktor-content-version" }
+ktor-server-call-logging = { module = "io.ktor:ktor-server-call-logging-jvm", version.ref = "ktor-content-version" }
+
+# Logging
+logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "logback-version" }
+
+# MongoDB Kotlin Coroutine Driver
+mongodb-driver-kotlin-coroutine = { module = "org.mongodb:mongodb-driver-kotlin-coroutine", version.ref = "mongodb-version" }
+mongodb-bson-kotlinx = { module = "org.mongodb:bson-kotlinx", version.ref = "mongodb-version" }
+
+# Codec
+commons-codec = { module = "commons-codec:commons-codec", version.ref = "commons-codec-version" }
+
+# Kotlin Test
+kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin-version" }
+
+[plugins]
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin-version" }
+ktor = { id = "io.ktor.plugin", version.ref = "ktor-version" }
+serialization = {id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "serialization"}
